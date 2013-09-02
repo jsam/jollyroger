@@ -1,0 +1,170 @@
+11-08 22:23 root         DEBUG    Saving self.docs[uuid] = 1242145171683286470807193947201517247891810188887
+11-08 22:23 root         DEBUG    Saving self.docs[values] = {}
+11-08 22:23 root         INFO     Scheduler initializing, id: 1242145171683286470807193947201517247891810188887
+11-08 22:23 networkio    DEBUG    Hostname: blackbook (192.168.1.1)
+11-08 22:23 networkio    DEBUG    Socket bind: ('0.0.0.0', 55000)
+11-08 22:23 root         DEBUG    Saving self.docs[addr] = 0.0.0.0
+11-08 22:23 root         DEBUG    Saving self.docs[port] = 55000
+11-08 22:23 networkio    INFO     Initialize a ReceiverTask@0.0.0.0:55000
+11-08 22:23 utility      DEBUG     [+] port_mapping(55000, UDP, 192.168.1.1, 55000, , )
+11-08 22:23 utility      INFO     Added port mapping to 192.168.1.1:55000
+11-08 22:23 utility      DEBUG     [+] port_mapping(55001, UDP, 192.168.1.1, 55001, , )
+11-08 22:23 utility      INFO     Added port mapping to 192.168.1.1:55001
+11-08 22:23 utility      WARNING  Cannot fetch external addr via uPnP.
+11-08 22:23 networkio    INFO     [-] external_ip unknown: sending STUN probe...
+11-08 22:23 pystun       DEBUG    Do Test1
+11-08 22:23 pystun       DEBUG    Trying STUN host: stun.ekiga.net
+11-08 22:23 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+11-08 22:23 pystun       DEBUG    recvfrom: ('77.72.174.163', 3478)
+11-08 22:23 pystun       DEBUG    Result: {'ExternalIP': '95.178.228.142', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3478, 'SourceIP': '77.72.174.163', 'ChangedIP': '77.72.174.162'}
+11-08 22:23 pystun       DEBUG    Do Test2
+11-08 22:23 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+11-08 22:23 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+11-08 22:23 pystun       DEBUG    recvfrom: ('77.72.174.166', 3479)
+11-08 22:23 pystun       DEBUG    Result: {'ExternalIP': '95.178.228.142', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3479, 'SourceIP': '77.72.174.166', 'ChangedIP': '77.72.174.166'}
+11-08 22:23 networkio    INFO     [+] STUN probe: 95.178.228.142:54320, Full Cone
+11-08 22:23 root         DEBUG    Saving self.docs[addr] = 95.178.228.142
+11-08 22:23 root         DEBUG    Saving self.docs[port] = 55000
+11-08 22:23 networkio    INFO     cache['addr'] = 95.178.228.142, cache['port'] = 55000
+11-08 22:23 networkio    INFO     Starting a SenderTask.
+11-08 22:23 networkio    DEBUG    Request buffer received packet: {'query_data': '', 'uuid': 1242145171683286470807193947201517247891810188887L, 'send_to': ('95.178.228.142', 45000), 'query_type': 'ping'}
+11-08 22:23 tftpy        DEBUG    tftproot /home/sam/jollyroger/tests/tasks does exist
+11-08 22:23 tftpy        DEBUG    tftproot /home/sam/jollyroger/tests/tasks is a directory
+11-08 22:23 tftpy        DEBUG    tftproot /home/sam/jollyroger/tests/tasks is readable
+11-08 22:23 tftpy        DEBUG    tftproot /home/sam/jollyroger/tests/tasks is writable
+11-08 22:23 tftpy        INFO     Server requested on ip 0.0.0.0, port 55001
+11-08 22:23 tftpy        INFO     Starting receive loop...
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 networkio    DEBUG    Sending packet {'query_type': 'ping', 'uuid': 1242145171683286470807193947201517247891810188887L, 'data': '', 'send_dest': ('95.178.228.142', 45000), 'rpc_no': 1419482681086328060843396106334347897469324052337L, 'type': 'query', 'recv_dest': ('95.178.228.142', 55000)}
+11-08 22:23 networkio    INFO     RefresherTask started...
+11-08 22:23 networkio    DEBUG    Request buffer received packet: {'uuid': 1242145171683286470807193947201517247891810188887L, 'query_type': 'ping', 'rpc_no': 1419482681086328060843396106334347897469324052337L, 'send_to': ('95.178.228.142', 45000), 'query_data': ''}
+11-08 22:23 networkio    DEBUG    Sending packet {'query_type': 'ping', 'uuid': 1242145171683286470807193947201517247891810188887L, 'data': '', 'send_dest': ('95.178.228.142', 45000), 'rpc_no': 71754194054576509344295425144864600192523429153L, 'type': 'query', 'recv_dest': ('95.178.228.142', 55000)}
+11-08 22:23 networkio    DEBUG    Request buffer received packet: {'uuid': 1242145171683286470807193947201517247891810188887L, 'query_type': 'ping', 'rpc_no': 71754194054576509344295425144864600192523429153L, 'send_to': ('95.178.228.142', 45000), 'query_data': ''}
+11-08 22:23 networkio    DEBUG    Sending packet {'query_type': 'ping', 'uuid': 1242145171683286470807193947201517247891810188887L, 'data': '', 'send_dest': ('95.178.228.142', 45000), 'rpc_no': 1380196258394319053339251453338174168216513898985L, 'type': 'query', 'recv_dest': ('95.178.228.142', 55000)}
+11-08 22:23 networkio    DEBUG    Received packet {'uuid': 1272733003182598136516675155645676848302182863240L, 'data': 'pong', 'send_dest': ('95.178.228.142', 55000), 'rpc_no': 1419482681086328060843396106334347897469324052337L, 'type': 'resp', 'recv_dest': ('95.178.228.142', 45000)} from ('192.168.1.2', 59294).
+11-08 22:23 root         DEBUG    kBucket.inserting(192.168.1.2, 59294, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    DEBUG    Routing table updated: (192.168.1.2, 59294, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    WARNING  T_RECV_BUFFER: 0
+11-08 22:23 networkio    WARNING  RPC_RESP_INDEX: [0]
+11-08 22:23 networkio    WARNING  PACKETS_SENT: [1419482681086328060843396106334347897469324052337L, 71754194054576509344295425144864600192523429153L, 1380196258394319053339251453338174168216513898985L]
+11-08 22:23 networkio    DEBUG    Received packet is response. Saving to response_buffer.
+11-08 22:23 networkio    DEBUG    Request buffer received packet: {'uuid': 1242145171683286470807193947201517247891810188887L, 'query_type': 'ping', 'rpc_no': 1380196258394319053339251453338174168216513898985L, 'send_to': ('95.178.228.142', 45000), 'query_data': ''}
+11-08 22:23 networkio    DEBUG    Sending packet {'query_type': 'ping', 'uuid': 1242145171683286470807193947201517247891810188887L, 'data': '', 'send_dest': ('95.178.228.142', 45000), 'rpc_no': 695600821415948620698763331879194546722852717518L, 'type': 'query', 'recv_dest': ('95.178.228.142', 55000)}
+11-08 22:23 networkio    DEBUG    Received packet {'uuid': 1272733003182598136516675155645676848302182863240L, 'data': 'pong', 'send_dest': ('95.178.228.142', 55000), 'rpc_no': 71754194054576509344295425144864600192523429153L, 'type': 'resp', 'recv_dest': ('95.178.228.142', 45000)} from ('192.168.1.2', 57099).
+11-08 22:23 root         DEBUG    kBucket.inserting(192.168.1.2, 57099, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    DEBUG    Routing table updated: (192.168.1.2, 57099, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    WARNING  T_RECV_BUFFER: 0
+11-08 22:23 networkio    WARNING  RPC_RESP_INDEX: [0]
+11-08 22:23 networkio    WARNING  PACKETS_SENT: [71754194054576509344295425144864600192523429153L, 1380196258394319053339251453338174168216513898985L, 695600821415948620698763331879194546722852717518L]
+11-08 22:23 networkio    DEBUG    Received packet is response. Saving to response_buffer.
+11-08 22:23 networkio    DEBUG    Received packet {'uuid': 1272733003182598136516675155645676848302182863240L, 'data': 'pong', 'send_dest': ('95.178.228.142', 55000), 'rpc_no': 1380196258394319053339251453338174168216513898985L, 'type': 'resp', 'recv_dest': ('95.178.228.142', 45000)} from ('192.168.1.2', 36527).
+11-08 22:23 root         DEBUG    kBucket.inserting(192.168.1.2, 36527, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    DEBUG    Routing table updated: (192.168.1.2, 36527, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    WARNING  T_RECV_BUFFER: 0
+11-08 22:23 networkio    WARNING  RPC_RESP_INDEX: [0]
+11-08 22:23 networkio    WARNING  PACKETS_SENT: [1380196258394319053339251453338174168216513898985L, 695600821415948620698763331879194546722852717518L]
+11-08 22:23 networkio    DEBUG    Received packet is response. Saving to response_buffer.
+11-08 22:23 networkio    DEBUG    Received packet {'uuid': 1272733003182598136516675155645676848302182863240L, 'data': 'pong', 'send_dest': ('95.178.228.142', 55000), 'rpc_no': 695600821415948620698763331879194546722852717518L, 'type': 'resp', 'recv_dest': ('95.178.228.142', 45000)} from ('192.168.1.2', 36708).
+11-08 22:23 root         DEBUG    kBucket.inserting(192.168.1.2, 36708, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    DEBUG    Routing table updated: (192.168.1.2, 36708, 1272733003182598136516675155645676848302182863240)
+11-08 22:23 networkio    WARNING  T_RECV_BUFFER: 0
+11-08 22:23 networkio    WARNING  RPC_RESP_INDEX: [0]
+11-08 22:23 networkio    WARNING  PACKETS_SENT: [695600821415948620698763331879194546722852717518L]
+11-08 22:23 networkio    DEBUG    Received packet is response. Saving to response_buffer.
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:23 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:23 tftpy        DEBUG    Iterating deletion list.
+11-08 22:23 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:25 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:25 tftpy        DEBUG    Iterating deletion list.
+11-08 22:25 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+11-08 22:25 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:25 tftpy        DEBUG    Iterating deletion list.
+11-08 22:25 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x127f830>]
+ist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:24 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:24 tftpy        DEBUG    Iterating deletion list.
+11-08 22:24 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:25 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:25 tftpy        DEBUG    Iterating deletion list.
+11-08 22:25 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:25 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:25 tftpy        DEBUG    Iterating deletion list.
+11-08 22:25 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]
+11-08 22:25 tftpy        DEBUG    Looping on all sessions to check for timeouts
+11-08 22:25 tftpy        DEBUG    Iterating deletion list.
+11-08 22:25 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x11ab8a0>]

@@ -1,4 +1,6 @@
-import logging
+import logging as log
+logging = log.getLogger("cachedb")
+
 import hashlib
 import random
 import cPickle as pickle
@@ -10,6 +12,14 @@ from blowfish import Blowfish
 from virtual_co import WriteWait, ReadWait
 
 
+class Singleton(type):
+    _instances = {}
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]    
+
+
 def get_hash(data):
     return int(hashlib.sha1(data).hexdigest(), 20)
 
@@ -17,7 +27,6 @@ def get_hash(data):
 def random_id(seed=None):
     if seed:
         random.seed(seed)
-
     return random.randint(0, (2 ** ADDRESS_SPACE) - 1)
 
 
@@ -35,16 +44,19 @@ def get_index(value1, value2):
 from config import ADDRESS_SPACE, K
 class kBucket(object):
 
-    _instance = None
-
+    #_instance = None
+    __metaclass__ = Singleton
+    
     def __init__(self, addr, port, uuid):
         self.addr, self.port, self.uuid = addr, port, uuid
         self.buckets = [[] for _ in range(ADDRESS_SPACE)]
 
-    def __new__(self, *args, **kwargs):
-        if not self._instance:
-            self._instance = super(kBucket, self).__new__(self, *args, **kwargs)
-        return self._instance
+
+    #def __new__(self, *args, **kwargs):
+    #    if not self._instance:
+    #        self._instance = super(kBucket, self).__new__(self, *args, **kwargs)
+    #    return self._instance
+
 
     def insert(self, addr, port, uuid):
         if self.uuid != uuid:
@@ -53,8 +65,10 @@ class kBucket(object):
                 bucket.pop(bucket.index((addr, port, uuid)))
             elif len(bucket) >= K:
                 bucket.pop(0)
-            logging.debug("kBucket.inserting({0}, {1}, {2})".format(addr, port, uuid))
+
             bucket.append((addr, port, uuid))
+            logging.debug("kBucket: {}".format(self.buckets))
+
             
     def _get_index(self, uuid):
         distance = self.uuid ^ uuid
@@ -64,10 +78,16 @@ class kBucket(object):
             length += 1
         return max(0, length)
 
-    def get_nearest_nodes(self, key, limit=None):
+
+    def get_nearest_nodes(self, key, limit=None, diff=None):
         sol_num = limit if limit else K
-        all_nodes = (node for bucket in self.buckets for node in bucket)
-        return sorted(all_nodes, key=lambda node: key ^ node[2])[:sol_num]
+        all_nodes = [node for bucket in self.buckets for node in bucket]
+        result = sorted(all_nodes, key=lambda node: key ^ node[2])[:sol_num]
+        logging.debug(
+            "Retrieving nearest nodes, result={}, limit={} from {}".format(
+                result,sol_num, self.buckets))
+        if diff:  return list(set(result) - set(diff))
+        else:  return result
 
 
 class DB(object):

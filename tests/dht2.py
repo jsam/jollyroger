@@ -1,17 +1,25 @@
+from multiprocessing import Process, Pipe
+from time import sleep
+from jdht import ProcessingDHT
 
 import logging
 
-from jdht.virtual_co import Scheduler
-from jdht.networkio import SenderTask, ReceiverTask, RefresherTask
-from jdht.networkio import request_buffer
 
-from jdht import DHT
+def dht_connect():
+    parent, child = Pipe()
+    dht = ProcessingDHT(
+                addr="", 
+                port=55000,
+                console_logging=True,
+                log_level=logging.DEBUG,
+                boot_addr="192.168.1.1", 
+                boot_port=45000,
+                pipe = child
+             )
+    dht.start()
+    sleep(5)
+    dht["123"] = "values123"
+    
 
-
-args1 = { "console_logging": True,
-          "log_level": logging.DEBUG
-}
-
-
-#d1 = DHT("", 45000, args=args1)
-d2 = DHT("", 55000, args=args1, boot_addr="95.178.228.142", boot_port=45000)
+if __name__ == "__main__":
+    dht_connect()

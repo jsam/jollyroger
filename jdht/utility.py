@@ -71,6 +71,10 @@ class UPNP(object):
             (port, proto, (ihost,iport), desc, c, d, e) = p
             i = i + 1
 
+def get_lan_addr():
+    import miniupnpc
+    u = UPNP(miniupnpc)
+    lan_addr = u.lan_addr()
 
 def do_UPNP_mapping(ports=[]):
     if len(ports) == 0:
@@ -97,7 +101,7 @@ def do_UPNP_mapping(ports=[]):
         return False
 
         
-    return external_addr
+    return external_addr, lan_addr
 
 
 def tftp_server(port, directory):

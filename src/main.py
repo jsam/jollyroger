@@ -66,10 +66,12 @@ if __name__ == "__main__":
             
 
     try:
-        args = { "console_logging": True,
-                 "log_level": logging.INFO,
-                 "console_hook": addr,
-                 "endpoint": endpoint }
+        args = { 
+            "console_logging": True,
+            "log_level": logging.INFO,
+            "console_hook": addr,
+            "endpoint": endpoint 
+        }
 
         App(args)
     except KeyboardInterrupt:

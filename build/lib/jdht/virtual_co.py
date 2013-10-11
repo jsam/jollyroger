@@ -2,19 +2,9 @@
 # Coroutine multitasking virtualization module.
 ###################################################
 
-
-class Error(BaseException):
-
-    def __init__(self, error_msg):
-        super(Error, self).__init__()
-        logging.error(error_msg)
-
-
-class TimeoutError(BaseException):
-    
-    def __init__(self, error_msg):
-        super(TimeoutError, self).__init__()
-        logging.error(error_msg)
+import select
+import types
+from Queue import Queue
 
 
 def coroutine(func):
@@ -35,12 +25,21 @@ def grep(pattern):
                 print line
     except GeneratorExit:
         raise Error("GeneratorExit")
+      
+      
+
+class Error(BaseException):
+
+    def __init__(self, error_msg):
+        super(Error, self).__init__()
+        logging.error(error_msg)
 
 
-
-import select
-import types
-from Queue import Queue
+class TimeoutError(BaseException):
+    
+    def __init__(self, error_msg):
+        super(TimeoutError, self).__init__()
+        logging.error(error_msg)
 
 
 class SystemCall(object):
@@ -227,32 +226,27 @@ class Scheduler(object):
             self.schedule(task)
 
 
+#def Recv(sock, recv_size):
+#    yield ReadWait(sock)
+#    yield sock.recvfrom(recv_size)
 
 
-### TRAMPOLING - needs testing ho ho ho 
-
-
-def Recv(sock, recv_size):
-    yield ReadWait(sock)
-    yield sock.recvfrom(recv_size)
-
-
-def Send(sock, packet, addr):
-    yield WriteWait(sock)
-    sock.sendto(packet, addr)
+#def Send(sock, packet, addr):
+#    yield WriteWait(sock)
+#    sock.sendto(packet, addr)
 
 
 import logging
 import socket
 import random
 import cPickle as pickle
-
 from blowfish import Blowfish
-from config import KEY, PACKET_SIZE
+from config import KEY
+from config import PACKET_SIZE
 
 
 class UDPSocket(object):
-    """Abstraction over socket object"""
+    """Abstraction over socket object. Implements (de)encryption and (de)serialization."""
 
     def __init__(self, socket):
         self.socket = socket
@@ -261,14 +255,16 @@ class UDPSocket(object):
 
     def recv(self):
         self.cipher.initCTR()
-        yield ReadWait(self.socket)
+        yield ReadWait(self.socket) # put socket to waitforread buffer
         packet, addr = self.socket.recvfrom(PACKET_SIZE)
         yield (pickle.loads(self.cipher.decryptCTR(packet)) , addr)
             
 
     def send(self, packet, addr):
         self.cipher.initCTR()
-        yield WriteWait(self.socket)
+        #yield WriteWait(self.socket) # put socket to waitforwrite buffer(TCP)
+        if len(addr) > 2:
+            addr = (addr[0], addr[1])
         self.socket.sendto(self.cipher.encryptCTR(pickle.dumps(packet)), addr)
         
 
@@ -276,3 +272,23 @@ class UDPSocket(object):
         self.socket.close()
 
 
+from weakref import WeakKeyDictionary
+from cPickle import dumps
+class Monitor():
+    
+    def __init__(self):
+        self.objects = WeakKeyDictionary()
+        
+    def is_changed(self, obj):
+        current_pickle = dumps(obj, -1)
+        changed = False
+        if obj in self.objects:
+            changed = current_pickle != self.objects[obj]
+        self.objects[obj] = current_pickle
+        return changed
+
+
+class ResultObject():
+    
+    def __init__(self, result=None):
+        self.result = result

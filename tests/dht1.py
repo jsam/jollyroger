@@ -1,11 +1,20 @@
+from multiprocessing import Process, Pipe
+from time import sleep 
+from jdht import ProcessingDHT
+
 import logging
-from jdht import DHT
+
+def dht_connect():
+    dht = ProcessingDHT(
+                addr="", 
+                port=45000, 
+                console_logging=True,
+                log_level=logging.DEBUG,
+             )
+    dht.start()
 
 
-args1 = { "console_logging": True,
-          "log_level": logging.DEBUG
-	}
+if __name__ == "__main__":
+    dht_connect()
+    
 
-
-d1 = DHT("", 45000, args=args1)
-#d2 = DHT("", 0, args=args1, boot_addr="192.168.1.3", boot_port=45000)

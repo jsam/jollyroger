@@ -1,304 +1,75 @@
-11-08 20:41 root         DEBUG    Saving self.docs[uuid] = 692761532684793156499269393229727538414679270376
-11-08 20:41 root         DEBUG    Saving self.docs[values] = {}
-11-08 20:41 root         INFO     Scheduler initializing, id: 692761532684793156499269393229727538414679270376
-11-08 20:41 networkio    DEBUG    Hostname: blackbook (192.168.1.1)
-11-08 20:41 networkio    DEBUG    Socket bind: ('0.0.0.0', 45000)
-11-08 20:41 root         DEBUG    Saving self.docs[addr] = 0.0.0.0
-11-08 20:41 root         DEBUG    Saving self.docs[port] = 45000
-11-08 20:41 networkio    INFO     Initialize a ReceiverTask@0.0.0.0:45000
-11-08 20:41 utility      DEBUG     [+] port_mapping(45000, UDP, 192.168.1.1, 45000, , )
-11-08 20:41 utility      INFO     Added port mapping to 192.168.1.1:45000
-11-08 20:41 utility      DEBUG     [+] port_mapping(45001, UDP, 192.168.1.1, 45001, , )
-11-08 20:41 utility      INFO     Added port mapping to 192.168.1.1:45001
-11-08 20:41 utility      WARNING  Cannot fetch external addr via uPnP.
-11-08 20:41 networkio    INFO     [-] external_ip unknown: sending STUN probe...
-11-08 20:41 pystun       DEBUG    Do Test1
-11-08 20:41 pystun       DEBUG    Trying STUN host: stun.ekiga.net
-11-08 20:41 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
-11-08 20:41 pystun       DEBUG    recvfrom: ('77.72.174.163', 3478)
-11-08 20:41 pystun       DEBUG    Result: {'ExternalIP': '95.178.228.142', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3478, 'SourceIP': '77.72.174.163', 'ChangedIP': '77.72.174.162'}
-11-08 20:41 pystun       DEBUG    Do Test2
-11-08 20:41 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
-11-08 20:41 pystun       DEBUG    recvfrom: ('77.72.174.160', 3479)
-11-08 20:41 pystun       DEBUG    Result: {'ExternalIP': '95.178.228.142', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3479, 'SourceIP': '77.72.174.160', 'ChangedIP': '77.72.174.160'}
-11-08 20:41 networkio    INFO     [+] STUN probe: 95.178.228.142:54320, Full Cone
-11-08 20:41 root         DEBUG    Saving self.docs[addr] = 95.178.228.142
-11-08 20:41 root         DEBUG    Saving self.docs[port] = 45000
-11-08 20:41 networkio    INFO     cache['addr'] = 95.178.228.142, cache['port'] = 45000
-11-08 20:41 networkio    INFO     Starting a SenderTask.
-11-08 20:41 networkio    INFO     RefresherTask started...
-11-08 20:41 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks does exist
-11-08 20:41 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is a directory
-11-08 20:41 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is readable
-11-08 20:41 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is writable
-11-08 20:41 tftpy        INFO     Server requested on ip 0.0.0.0, port 45001
-11-08 20:41 tftpy        INFO     Starting receive loop...
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:41 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:41 tftpy        DEBUG    Iterating deletion list.
-11-08 20:41 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:42 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:42 tftpy        DEBUG    Iterating deletion list.
-11-08 20:42 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:43 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:43 tftpy        DEBUG    Iterating deletion list.
-11-08 20:43 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:44 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:44 tftpy        DEBUG    Iterating deletion list.
-11-08 20:44 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 networkio    DEBUG    Received packet {'uuid': 583739424073027680417970915997064363675551493646L, 'query_type': 'ping', 'rpc_no': 1098293938367991663459196801611735047208677874993L, 'send_dest': ('95.178.228.142', 45000), 'type': 'query', 'data': '', 'recv_dest': ('95.178.228.142', 55000)} from ('192.168.1.2', 36678).
-11-08 20:45 root         DEBUG    kBucket.inserting(192.168.1.2, 36678, 583739424073027680417970915997064363675551493646)
-11-08 20:45 networkio    DEBUG    Routing table updated: (192.168.1.2, 36678, 583739424073027680417970915997064363675551493646)
-11-08 20:45 networkio    INFO     Received packet: pong
-11-08 20:45 networkio    DEBUG    Received packet is request. Sending answer.
-11-08 20:45 networkio    DEBUG    Received packet {'uuid': 583739424073027680417970915997064363675551493646L, 'query_type': 'ping', 'rpc_no': 1083438411214027817039715370713813773501949991037L, 'send_dest': ('95.178.228.142', 45000), 'type': 'query', 'data': '', 'recv_dest': ('95.178.228.142', 55000)} from ('192.168.1.2', 60056).
-11-08 20:45 root         DEBUG    kBucket.inserting(192.168.1.2, 60056, 583739424073027680417970915997064363675551493646)
-11-08 20:45 networkio    DEBUG    Routing table updated: (192.168.1.2, 60056, 583739424073027680417970915997064363675551493646)
-11-08 20:45 networkio    INFO     Received packet: pong
-11-08 20:45 networkio    DEBUG    Received packet is request. Sending answer.
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:45 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:45 tftpy        DEBUG    Iterating deletion list.
-11-08 20:45 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:46 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:46 tftpy        DEBUG    Iterating deletion list.
-11-08 20:46 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:47 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:47 tftpy        DEBUG    Iterating deletion list.
-11-08 20:47 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
-11-08 20:48 tftpy        DEBUG    Looping on all sessions to check for timeouts
-11-08 20:48 tftpy        DEBUG    Iterating deletion list.
-11-08 20:48 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0xc84910>]
+08-10 10:08 root         DEBUG    Saving self.docs[uuid] = 1363462680208099257805833208580874229547193717529
+08-10 10:08 root         DEBUG    Saving self.docs[values] = {}
+08-10 10:08 init         INFO     TaskScheduler initializing, id: 1363462680208099257805833208580874229547193717529
+08-10 10:08 networkio    DEBUG    Hostname: blackbook (192.168.1.1)
+08-10 10:08 networkio    DEBUG    Socket bind: ('0.0.0.0', 45000)
+08-10 10:08 root         DEBUG    Saving self.docs[addr] = 0.0.0.0
+08-10 10:08 root         DEBUG    Saving self.docs[port] = 45000
+08-10 10:08 utility      DEBUG     [+] port_mapping(45000, UDP, 192.168.1.1, 45000, , )
+08-10 10:08 utility      INFO     Added port mapping to 192.168.1.1:45000
+08-10 10:08 utility      DEBUG     [+] port_mapping(45001, UDP, 192.168.1.1, 45001, , )
+08-10 10:08 utility      INFO     Added port mapping to 192.168.1.1:45001
+08-10 10:08 utility      WARNING  Cannot fetch external addr via uPnP.
+08-10 10:08 networkio    INFO     [-] external_ip unknown: sending STUN probe...
+08-10 10:08 pystun       DEBUG    Do Test1
+08-10 10:08 pystun       DEBUG    Trying STUN host: stun.ekiga.net
+08-10 10:08 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+08-10 10:08 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+08-10 10:08 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+08-10 10:08 pystun       DEBUG    sendto ('stun.ekiga.net', 3478)
+08-10 10:08 pystun       DEBUG    Trying STUN host: stunserver.org
+08-10 10:08 pystun       DEBUG    sendto ('stunserver.org', 3478)
+08-10 10:08 pystun       DEBUG    sendto ('stunserver.org', 3478)
+08-10 10:08 init         DEBUG    __setitem__(123,valuesss)
+08-10 10:08 init         DEBUG    Command received: {'value': 'valuesss', 'key': '123'}
+08-10 10:08 init         DEBUG    Command is type dict, executing __setitem__
+08-10 10:08 networkio    INFO     Storing 123:valuesss
+08-10 10:08 networkio    DEBUG    Values stored, yielding...
+08-10 10:08 pystun       DEBUG    recvfrom: ('132.177.123.6', 3478)
+08-10 10:08 pystun       DEBUG    Result: {'ExternalIP': '95.178.165.62', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3478, 'SourceIP': '132.177.123.6', 'ChangedIP': '132.177.123.7'}
+08-10 10:08 pystun       DEBUG    Do Test2
+08-10 10:08 pystun       DEBUG    sendto ('stunserver.org', 3478)
+08-10 10:08 pystun       DEBUG    recvfrom: ('132.177.123.7', 3479)
+08-10 10:08 pystun       DEBUG    Result: {'ExternalIP': '95.178.165.62', 'Resp': True, 'ExternalPort': 54320, 'ChangedPort': 3479, 'SourcePort': 3479, 'SourceIP': '132.177.123.7', 'ChangedIP': '132.177.123.7'}
+08-10 10:08 networkio    INFO     [+] STUN probe: 95.178.165.62:54320, Full Cone
+08-10 10:08 networkio    INFO     cache['addr'] = 0.0.0.0, cache['port'] = 45000
+08-10 10:08 networkio    INFO     Waiting for packets in ReceiverTask
+08-10 10:08 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks does exist
+08-10 10:08 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is a directory
+08-10 10:08 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is readable
+08-10 10:08 tftpy        DEBUG    tftproot /home/sam/jollyroger/tasks is writable
+08-10 10:08 tftpy        INFO     Server requested on ip 0.0.0.0, port 45001
+08-10 10:08 tftpy        INFO     Starting receive loop...
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:08 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:08 tftpy        DEBUG    Iterating deletion list.
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:08 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:08 tftpy        DEBUG    Iterating deletion list.
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:08 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:08 tftpy        DEBUG    Iterating deletion list.
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:08 init         DEBUG    __setitem__(another key,in the wall)
+08-10 10:08 init         DEBUG    Command received: {'value': 'in the wall', 'key': 'another key'}
+08-10 10:08 init         DEBUG    Command is type dict, executing __setitem__
+08-10 10:08 networkio    INFO     Storing another key:in the wall
+08-10 10:08 networkio    DEBUG    Values stored, yielding...
+08-10 10:08 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:08 tftpy        DEBUG    Iterating deletion list.
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:08 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:08 tftpy        DEBUG    Iterating deletion list.
+08-10 10:08 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:09 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:09 tftpy        DEBUG    Iterating deletion list.
+08-10 10:09 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:09 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:09 tftpy        DEBUG    Iterating deletion list.
+08-10 10:09 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:09 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:09 tftpy        DEBUG    Iterating deletion list.
+08-10 10:09 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]
+08-10 10:09 tftpy        DEBUG    Looping on all sessions to check for timeouts
+08-10 10:09 tftpy        DEBUG    Iterating deletion list.
+08-10 10:09 tftpy        DEBUG    Performing select on this inputlist: [<socket._socketobject object at 0x2c2b600>]

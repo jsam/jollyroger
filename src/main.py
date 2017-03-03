@@ -13,8 +13,8 @@ class App(object):
         logging.basicConfig(
             level=args["log_level"],
             format="%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
-            datefmt="%d-%m %H:%M", 
-            filename=".log", 
+            datefmt="%d-%m %H:%M",
+            filename=".log",
             filemode="w")
 
         if args["console_logging"]:
@@ -27,22 +27,18 @@ class App(object):
 
         logging.info("Scheduler initializing...")
         sched = Scheduler()
-        
+
         if args["endpoint"]:
             logging.info("Starting as network endpoint.")
-            #sched.new(shell_manager("", 0))
-            #sched.new(broadcast_ping())
+
 
         if args["console_hook"]:
             logging.info("Hooking console to {0}:{1}".format(
                 args["console_hook"][0],
                 args["console_hook"][1]))
 
-            #sched.new(shell_client(args["console_hook"], ["ls", "pwd"]))
-            #sched.new(shell_client(args["console_hook"], ["@ping", "ls", "pwd", "@ping"]))
-    
         sched.start()
-        
+
 
 if __name__ == "__main__":
 
@@ -63,14 +59,14 @@ if __name__ == "__main__":
             endpoint = True
         except ValueError:
             endpoint = False
-            
+
 
     try:
-        args = { 
+        args = {
             "console_logging": True,
             "log_level": logging.INFO,
             "console_hook": addr,
-            "endpoint": endpoint 
+            "endpoint": endpoint
         }
 
         App(args)

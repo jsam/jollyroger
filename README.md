@@ -1,6 +1,6 @@
 # Jollyroger
 
-Kademlia implementation of distributed hash tables. 
+Kademlia implementation of distributed hash table. 
 
 ## Usage
 

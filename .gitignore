@@ -1,4 +1,7 @@
-.cdb
-.log
-jdht/.cdb
-reinstall
+build
+install
+.idea
+.cproject
+.project
+.settings
+*~

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package jrtransport;
+
+message InfoHash {
+    string ID = 1;
+    string Address = 2;
+    string Port = 3;
+    string kBucketSize = 4;
+}
+
+// The request message containing the user's name.
+message PingRequest {
+  InfoHash source = 1;
+}
+
+// The response message containing the pong
+message PongResponse {
+  InfoHash destination = 1;
+}
+
+// The JRTransport service definition.
+service JRTransport {
+  // Sends a ping
+  rpc Ping (PingRequest) returns (PongResponse) {}
+}

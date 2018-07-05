@@ -2,25 +2,38 @@ syntax = "proto3";
 
 package jrtransport;
 
-message InfoHash {
-    string ID = 1;
+option cc_generic_services = false;
+option cc_enable_arenas = false;
+
+
+message ID {
+    string InfoHash = 1;
     string Address = 2;
     string Port = 3;
-    string kBucketSize = 4;
 }
 
-// The request message containing the user's name.
 message PingRequest {
-  InfoHash source = 1;
+  ID source = 1;
 }
 
-// The response message containing the pong
 message PongResponse {
-  InfoHash destination = 1;
+  ID destination = 1;
 }
+
+
+message AuthRequest {
+    ID source = 1;
+    string secret = 2;
+}
+
+message AuthResponse {
+    ID destination = 1;
+    bool success = 2;
+}
+
 
 // The JRTransport service definition.
-service JRTransport {
-  // Sends a ping
+service JRTransportService {
   rpc Ping (PingRequest) returns (PongResponse) {}
+  rpc Auth (AuthRequest) returns (AuthResponse) {}
 }

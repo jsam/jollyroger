@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-namespace ProjectTemplate {
+namespace JollyRoger {
 namespace ProjB {
 /// The current major version.
 #define HELLO_VERSION_MAJOR @VERSION_MAJOR@

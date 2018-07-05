@@ -1,25 +1,49 @@
-# @author  Barthélémy von Haller
+# @brief
+# @author  jsam <contact@justsam.io>
+
+set(protobuf_MODULE_COMPATIBLE TRUE)
+include(FindProtobuf)
+find_package(Protobuf REQUIRED)
+include_directories(${PROTOBUF_INCLUDE_DIR})
+
+set(_PROTOBUF_LIBPROTOBUF protobuf::libprotobuf)
+set(_PROTOBUF_PROTOC $<TARGET_FILE:protobuf::protoc>)
+
+# Find gRPC installation
+find_package(gRPC REQUIRED)
+set(_GRPC_GRPCPP_UNSECURE grpc++_unsecure)
+set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
+
+
 set(LIB_HEADERS
-  "${CMAKE_CURRENT_BINARY_DIR}/../include/JRTransport/Version.h" # Generated header
-  ../include/JRTransport/World.h # Normal header
-)
+        "${CMAKE_CURRENT_BINARY_DIR}/../include/JRTransport/Version.h" # Generated header
+        ../include/JRTransport/World.h # Normal header
+        ../include/JRTransport/transport.pb.h
+        ../include/JRTransport/transport.grpc.pb.h
+        ../include/JRTransport/ServerImpl.h)
+
 
 set(LIB_SOURCES
-  World.cxx
-)
+        transport.pb.cc
+        transport.grpc.pb.cc
+
+        World.cxx
+        ServerImpl.cxx
+        )
 
 set(APP_HEADERS
-)
+        )
 
 set(APP_SOURCES
-  main.cxx
-)
+        main.cxx
+        )
 
 # Define two variables in order not to repeat ourselves.
 set(LIBRARY_NAME JRTransport)
 
 # Define the library
 add_library(${LIBRARY_NAME} SHARED ${LIB_SOURCES})
+target_link_libraries(${LIBRARY_NAME} ${GPR_LIBRARY} ${GRPC_LIBRARY} ${GRPCPP_LIBRARY} ${_GRPC_GRPCPP_UNSECURE} ${_PROTOBUF_LIBPROTOBUF})
 
 # Set the build version. It will be used in the name of the lib, with corresponding
 # symlinks created. SOVERSION could also be specified for api version. 
@@ -33,8 +57,14 @@ set_target_properties(${LIBRARY_NAME} PROPERTIES
 set(APPLICATION_NAME JRTransportrunner)
 add_executable(${APPLICATION_NAME} ${APP_SOURCES})
 
+message(GRPC_STATUS "GRPClib: ${_GRPC_GRPCPP_UNSECURE}")
+message(GRPC_STATUS "Protobuf: ${_PROTOBUF_LIBPROTOBUF}")
+
 # Links the target exe (JRTransportrunner) against the library (libJRTransport) and other required libraries
-target_link_libraries(${APPLICATION_NAME} ${LIBRARY_NAME} ${Boost_PROGRAM_OPTIONS_LIBRARY})
+target_link_libraries(${APPLICATION_NAME} ${LIBRARY_NAME}
+        ${Boost_PROGRAM_OPTIONS_LIBRARY}
+
+        )
 
 # Says how and where to install software
 # Targets:

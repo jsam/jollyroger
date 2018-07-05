@@ -15,14 +15,14 @@ BreakConstructorInitializersBeforeComma: false
 ColumnLimit: 120
 #CommentPragmas:  '^ IWYU pragma:'
 ConstructorInitializerAllOnOneLineOrOnePerLine: true
-ConstructorInitializerIndentWidth: 2
-ContinuationIndentWidth: 2
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
 Cpp11BracedListStyle: false
 DerivePointerBinding: false
 ExperimentalAutoDetectBinPacking: false
 IndentCaseLabels: true
 IndentFunctionDeclarationAfterType: true
-IndentWidth:     2
+IndentWidth:     4
 # It is broken on windows. Breaks all #include "header.h"
 #Language:        Cpp
 MaxEmptyLinesToKeep: 1
@@ -45,5 +45,5 @@ SpacesInAngles:  false
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 Standard:        Cpp11
-TabWidth:        2
+TabWidth:        4
 UseTab:          Never

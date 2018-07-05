@@ -1,19 +1,11 @@
-///
-/// @file    World.cxx
-/// @author  Barthelemy von Haller
-///
+#include <iostream>
 
 #include "JRTransport/World.h"
 
-#include <iostream>
-
-namespace ProjectTemplate {
+namespace JollyRoger {
 namespace JRTransport {
 
-void World::greet()
-{
-  std::cout << "JRTransport world!!" << std::endl;
-}
+void World::greet() { std::cout << "JRTransport world!!" << std::endl; }
 
 int World::returnsN(int n)
 {
@@ -24,4 +16,4 @@ int World::returnsN(int n)
 }
 
 } // namespace JRTransport
-} // namespace ProjectTemplate
+} // namespace JollyRoger

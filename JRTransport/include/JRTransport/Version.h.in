@@ -1,7 +1,7 @@
 ///
 /// @file    JRTransport/Version.h
 /// @brief   Report the version for this package.
-/// @author  Barthélémy von Haller
+/// @author  jsam <contact@justsam.io>
 ///
 
 #ifndef PROJECT_TEMPLATE_A_HELLO_VERSION_H
@@ -10,7 +10,7 @@
 #include <string>
 #include <sstream>
 
-namespace ProjectTemplate {
+namespace JollyRoger {
 namespace JRTransport {
 /// The current major version.
 #define HELLO_VERSION_MAJOR @VERSION_MAJOR@

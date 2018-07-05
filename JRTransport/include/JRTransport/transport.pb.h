@@ -38,7 +38,7 @@ namespace protobuf_transport_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[3];
+  static const ::google::protobuf::internal::ParseTable schema[5];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -46,9 +46,15 @@ struct TableStruct {
 void AddDescriptors();
 }  // namespace protobuf_transport_2eproto
 namespace jrtransport {
-class InfoHash;
-class InfoHashDefaultTypeInternal;
-extern InfoHashDefaultTypeInternal _InfoHash_default_instance_;
+class AuthRequest;
+class AuthRequestDefaultTypeInternal;
+extern AuthRequestDefaultTypeInternal _AuthRequest_default_instance_;
+class AuthResponse;
+class AuthResponseDefaultTypeInternal;
+extern AuthResponseDefaultTypeInternal _AuthResponse_default_instance_;
+class ID;
+class IDDefaultTypeInternal;
+extern IDDefaultTypeInternal _ID_default_instance_;
 class PingRequest;
 class PingRequestDefaultTypeInternal;
 extern PingRequestDefaultTypeInternal _PingRequest_default_instance_;
@@ -58,7 +64,9 @@ extern PongResponseDefaultTypeInternal _PongResponse_default_instance_;
 }  // namespace jrtransport
 namespace google {
 namespace protobuf {
-template<> ::jrtransport::InfoHash* Arena::CreateMaybeMessage<::jrtransport::InfoHash>(Arena*);
+template<> ::jrtransport::AuthRequest* Arena::CreateMaybeMessage<::jrtransport::AuthRequest>(Arena*);
+template<> ::jrtransport::AuthResponse* Arena::CreateMaybeMessage<::jrtransport::AuthResponse>(Arena*);
+template<> ::jrtransport::ID* Arena::CreateMaybeMessage<::jrtransport::ID>(Arena*);
 template<> ::jrtransport::PingRequest* Arena::CreateMaybeMessage<::jrtransport::PingRequest>(Arena*);
 template<> ::jrtransport::PongResponse* Arena::CreateMaybeMessage<::jrtransport::PongResponse>(Arena*);
 }  // namespace protobuf
@@ -67,24 +75,24 @@ namespace jrtransport {
 
 // ===================================================================
 
-class InfoHash : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:jrtransport.InfoHash) */ {
+class ID : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:jrtransport.ID) */ {
  public:
-  InfoHash();
-  virtual ~InfoHash();
+  ID();
+  virtual ~ID();
 
-  InfoHash(const InfoHash& from);
+  ID(const ID& from);
 
-  inline InfoHash& operator=(const InfoHash& from) {
+  inline ID& operator=(const ID& from) {
     CopyFrom(from);
     return *this;
   }
   #if LANG_CXX11
-  InfoHash(InfoHash&& from) noexcept
-    : InfoHash() {
+  ID(ID&& from) noexcept
+    : ID() {
     *this = ::std::move(from);
   }
 
-  inline InfoHash& operator=(InfoHash&& from) noexcept {
+  inline ID& operator=(ID&& from) noexcept {
     if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -94,34 +102,34 @@ class InfoHash : public ::google::protobuf::Message /* @@protoc_insertion_point(
   }
   #endif
   static const ::google::protobuf::Descriptor* descriptor();
-  static const InfoHash& default_instance();
+  static const ID& default_instance();
 
   static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
-  static inline const InfoHash* internal_default_instance() {
-    return reinterpret_cast<const InfoHash*>(
-               &_InfoHash_default_instance_);
+  static inline const ID* internal_default_instance() {
+    return reinterpret_cast<const ID*>(
+               &_ID_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     0;
 
-  void Swap(InfoHash* other);
-  friend void swap(InfoHash& a, InfoHash& b) {
+  void Swap(ID* other);
+  friend void swap(ID& a, ID& b) {
     a.Swap(&b);
   }
 
   // implements Message ----------------------------------------------
 
-  inline InfoHash* New() const final {
-    return CreateMaybeMessage<InfoHash>(NULL);
+  inline ID* New() const final {
+    return CreateMaybeMessage<ID>(NULL);
   }
 
-  InfoHash* New(::google::protobuf::Arena* arena) const final {
-    return CreateMaybeMessage<InfoHash>(arena);
+  ID* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<ID>(arena);
   }
   void CopyFrom(const ::google::protobuf::Message& from) final;
   void MergeFrom(const ::google::protobuf::Message& from) final;
-  void CopyFrom(const InfoHash& from);
-  void MergeFrom(const InfoHash& from);
+  void CopyFrom(const ID& from);
+  void MergeFrom(const ID& from);
   void Clear() final;
   bool IsInitialized() const final;
 
@@ -138,7 +146,7 @@ class InfoHash : public ::google::protobuf::Message /* @@protoc_insertion_point(
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(InfoHash* other);
+  void InternalSwap(ID* other);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return NULL;
@@ -154,19 +162,19 @@ class InfoHash : public ::google::protobuf::Message /* @@protoc_insertion_point(
 
   // accessors -------------------------------------------------------
 
-  // string ID = 1;
-  void clear_id();
-  static const int kIDFieldNumber = 1;
-  const ::std::string& id() const;
-  void set_id(const ::std::string& value);
+  // string InfoHash = 1;
+  void clear_infohash();
+  static const int kInfoHashFieldNumber = 1;
+  const ::std::string& infohash() const;
+  void set_infohash(const ::std::string& value);
   #if LANG_CXX11
-  void set_id(::std::string&& value);
+  void set_infohash(::std::string&& value);
   #endif
-  void set_id(const char* value);
-  void set_id(const char* value, size_t size);
-  ::std::string* mutable_id();
-  ::std::string* release_id();
-  void set_allocated_id(::std::string* id);
+  void set_infohash(const char* value);
+  void set_infohash(const char* value, size_t size);
+  ::std::string* mutable_infohash();
+  ::std::string* release_infohash();
+  void set_allocated_infohash(::std::string* infohash);
 
   // string Address = 2;
   void clear_address();
@@ -196,28 +204,13 @@ class InfoHash : public ::google::protobuf::Message /* @@protoc_insertion_point(
   ::std::string* release_port();
   void set_allocated_port(::std::string* port);
 
-  // string kBucketSize = 4;
-  void clear_kbucketsize();
-  static const int kKBucketSizeFieldNumber = 4;
-  const ::std::string& kbucketsize() const;
-  void set_kbucketsize(const ::std::string& value);
-  #if LANG_CXX11
-  void set_kbucketsize(::std::string&& value);
-  #endif
-  void set_kbucketsize(const char* value);
-  void set_kbucketsize(const char* value, size_t size);
-  ::std::string* mutable_kbucketsize();
-  ::std::string* release_kbucketsize();
-  void set_allocated_kbucketsize(::std::string* kbucketsize);
-
-  // @@protoc_insertion_point(class_scope:jrtransport.InfoHash)
+  // @@protoc_insertion_point(class_scope:jrtransport.ID)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::internal::ArenaStringPtr infohash_;
   ::google::protobuf::internal::ArenaStringPtr address_;
   ::google::protobuf::internal::ArenaStringPtr port_;
-  ::google::protobuf::internal::ArenaStringPtr kbucketsize_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_transport_2eproto::TableStruct;
 };
@@ -310,23 +303,23 @@ class PingRequest : public ::google::protobuf::Message /* @@protoc_insertion_poi
 
   // accessors -------------------------------------------------------
 
-  // .jrtransport.InfoHash source = 1;
+  // .jrtransport.ID source = 1;
   bool has_source() const;
   void clear_source();
   static const int kSourceFieldNumber = 1;
   private:
-  const ::jrtransport::InfoHash& _internal_source() const;
+  const ::jrtransport::ID& _internal_source() const;
   public:
-  const ::jrtransport::InfoHash& source() const;
-  ::jrtransport::InfoHash* release_source();
-  ::jrtransport::InfoHash* mutable_source();
-  void set_allocated_source(::jrtransport::InfoHash* source);
+  const ::jrtransport::ID& source() const;
+  ::jrtransport::ID* release_source();
+  ::jrtransport::ID* mutable_source();
+  void set_allocated_source(::jrtransport::ID* source);
 
   // @@protoc_insertion_point(class_scope:jrtransport.PingRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::jrtransport::InfoHash* source_;
+  ::jrtransport::ID* source_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_transport_2eproto::TableStruct;
 };
@@ -419,23 +412,263 @@ class PongResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // .jrtransport.InfoHash destination = 1;
+  // .jrtransport.ID destination = 1;
   bool has_destination() const;
   void clear_destination();
   static const int kDestinationFieldNumber = 1;
   private:
-  const ::jrtransport::InfoHash& _internal_destination() const;
+  const ::jrtransport::ID& _internal_destination() const;
   public:
-  const ::jrtransport::InfoHash& destination() const;
-  ::jrtransport::InfoHash* release_destination();
-  ::jrtransport::InfoHash* mutable_destination();
-  void set_allocated_destination(::jrtransport::InfoHash* destination);
+  const ::jrtransport::ID& destination() const;
+  ::jrtransport::ID* release_destination();
+  ::jrtransport::ID* mutable_destination();
+  void set_allocated_destination(::jrtransport::ID* destination);
 
   // @@protoc_insertion_point(class_scope:jrtransport.PongResponse)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::jrtransport::InfoHash* destination_;
+  ::jrtransport::ID* destination_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_transport_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class AuthRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:jrtransport.AuthRequest) */ {
+ public:
+  AuthRequest();
+  virtual ~AuthRequest();
+
+  AuthRequest(const AuthRequest& from);
+
+  inline AuthRequest& operator=(const AuthRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AuthRequest(AuthRequest&& from) noexcept
+    : AuthRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline AuthRequest& operator=(AuthRequest&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AuthRequest& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AuthRequest* internal_default_instance() {
+    return reinterpret_cast<const AuthRequest*>(
+               &_AuthRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  void Swap(AuthRequest* other);
+  friend void swap(AuthRequest& a, AuthRequest& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AuthRequest* New() const final {
+    return CreateMaybeMessage<AuthRequest>(NULL);
+  }
+
+  AuthRequest* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AuthRequest>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AuthRequest& from);
+  void MergeFrom(const AuthRequest& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AuthRequest* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string secret = 2;
+  void clear_secret();
+  static const int kSecretFieldNumber = 2;
+  const ::std::string& secret() const;
+  void set_secret(const ::std::string& value);
+  #if LANG_CXX11
+  void set_secret(::std::string&& value);
+  #endif
+  void set_secret(const char* value);
+  void set_secret(const char* value, size_t size);
+  ::std::string* mutable_secret();
+  ::std::string* release_secret();
+  void set_allocated_secret(::std::string* secret);
+
+  // .jrtransport.ID source = 1;
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 1;
+  private:
+  const ::jrtransport::ID& _internal_source() const;
+  public:
+  const ::jrtransport::ID& source() const;
+  ::jrtransport::ID* release_source();
+  ::jrtransport::ID* mutable_source();
+  void set_allocated_source(::jrtransport::ID* source);
+
+  // @@protoc_insertion_point(class_scope:jrtransport.AuthRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr secret_;
+  ::jrtransport::ID* source_;
+  mutable ::google::protobuf::internal::CachedSize _cached_size_;
+  friend struct ::protobuf_transport_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class AuthResponse : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:jrtransport.AuthResponse) */ {
+ public:
+  AuthResponse();
+  virtual ~AuthResponse();
+
+  AuthResponse(const AuthResponse& from);
+
+  inline AuthResponse& operator=(const AuthResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  AuthResponse(AuthResponse&& from) noexcept
+    : AuthResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline AuthResponse& operator=(AuthResponse&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AuthResponse& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const AuthResponse* internal_default_instance() {
+    return reinterpret_cast<const AuthResponse*>(
+               &_AuthResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  void Swap(AuthResponse* other);
+  friend void swap(AuthResponse& a, AuthResponse& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AuthResponse* New() const final {
+    return CreateMaybeMessage<AuthResponse>(NULL);
+  }
+
+  AuthResponse* New(::google::protobuf::Arena* arena) const final {
+    return CreateMaybeMessage<AuthResponse>(arena);
+  }
+  void CopyFrom(const ::google::protobuf::Message& from) final;
+  void MergeFrom(const ::google::protobuf::Message& from) final;
+  void CopyFrom(const AuthResponse& from);
+  void MergeFrom(const AuthResponse& from);
+  void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) final;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const final;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AuthResponse* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .jrtransport.ID destination = 1;
+  bool has_destination() const;
+  void clear_destination();
+  static const int kDestinationFieldNumber = 1;
+  private:
+  const ::jrtransport::ID& _internal_destination() const;
+  public:
+  const ::jrtransport::ID& destination() const;
+  ::jrtransport::ID* release_destination();
+  ::jrtransport::ID* mutable_destination();
+  void set_allocated_destination(::jrtransport::ID* destination);
+
+  // bool success = 2;
+  void clear_success();
+  static const int kSuccessFieldNumber = 2;
+  bool success() const;
+  void set_success(bool value);
+
+  // @@protoc_insertion_point(class_scope:jrtransport.AuthResponse)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::jrtransport::ID* destination_;
+  bool success_;
   mutable ::google::protobuf::internal::CachedSize _cached_size_;
   friend struct ::protobuf_transport_2eproto::TableStruct;
 };
@@ -448,225 +681,172 @@ class PongResponse : public ::google::protobuf::Message /* @@protoc_insertion_po
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// InfoHash
+// ID
 
-// string ID = 1;
-inline void InfoHash::clear_id() {
-  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// string InfoHash = 1;
+inline void ID::clear_infohash() {
+  infohash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& InfoHash::id() const {
-  // @@protoc_insertion_point(field_get:jrtransport.InfoHash.ID)
-  return id_.GetNoArena();
+inline const ::std::string& ID::infohash() const {
+  // @@protoc_insertion_point(field_get:jrtransport.ID.InfoHash)
+  return infohash_.GetNoArena();
 }
-inline void InfoHash::set_id(const ::std::string& value) {
+inline void ID::set_infohash(const ::std::string& value) {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:jrtransport.InfoHash.ID)
+  infohash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:jrtransport.ID.InfoHash)
 }
 #if LANG_CXX11
-inline void InfoHash::set_id(::std::string&& value) {
+inline void ID::set_infohash(::std::string&& value) {
   
-  id_.SetNoArena(
+  infohash_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:jrtransport.InfoHash.ID)
+  // @@protoc_insertion_point(field_set_rvalue:jrtransport.ID.InfoHash)
 }
 #endif
-inline void InfoHash::set_id(const char* value) {
+inline void ID::set_infohash(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:jrtransport.InfoHash.ID)
+  infohash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:jrtransport.ID.InfoHash)
 }
-inline void InfoHash::set_id(const char* value, size_t size) {
+inline void ID::set_infohash(const char* value, size_t size) {
   
-  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  infohash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:jrtransport.InfoHash.ID)
+  // @@protoc_insertion_point(field_set_pointer:jrtransport.ID.InfoHash)
 }
-inline ::std::string* InfoHash::mutable_id() {
+inline ::std::string* ID::mutable_infohash() {
   
-  // @@protoc_insertion_point(field_mutable:jrtransport.InfoHash.ID)
-  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:jrtransport.ID.InfoHash)
+  return infohash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* InfoHash::release_id() {
-  // @@protoc_insertion_point(field_release:jrtransport.InfoHash.ID)
+inline ::std::string* ID::release_infohash() {
+  // @@protoc_insertion_point(field_release:jrtransport.ID.InfoHash)
   
-  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return infohash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void InfoHash::set_allocated_id(::std::string* id) {
-  if (id != NULL) {
+inline void ID::set_allocated_infohash(::std::string* infohash) {
+  if (infohash != NULL) {
     
   } else {
     
   }
-  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
-  // @@protoc_insertion_point(field_set_allocated:jrtransport.InfoHash.ID)
+  infohash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), infohash);
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.ID.InfoHash)
 }
 
 // string Address = 2;
-inline void InfoHash::clear_address() {
+inline void ID::clear_address() {
   address_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& InfoHash::address() const {
-  // @@protoc_insertion_point(field_get:jrtransport.InfoHash.Address)
+inline const ::std::string& ID::address() const {
+  // @@protoc_insertion_point(field_get:jrtransport.ID.Address)
   return address_.GetNoArena();
 }
-inline void InfoHash::set_address(const ::std::string& value) {
+inline void ID::set_address(const ::std::string& value) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_set:jrtransport.ID.Address)
 }
 #if LANG_CXX11
-inline void InfoHash::set_address(::std::string&& value) {
+inline void ID::set_address(::std::string&& value) {
   
   address_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_set_rvalue:jrtransport.ID.Address)
 }
 #endif
-inline void InfoHash::set_address(const char* value) {
+inline void ID::set_address(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_set_char:jrtransport.ID.Address)
 }
-inline void InfoHash::set_address(const char* value, size_t size) {
+inline void ID::set_address(const char* value, size_t size) {
   
   address_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_set_pointer:jrtransport.ID.Address)
 }
-inline ::std::string* InfoHash::mutable_address() {
+inline ::std::string* ID::mutable_address() {
   
-  // @@protoc_insertion_point(field_mutable:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_mutable:jrtransport.ID.Address)
   return address_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* InfoHash::release_address() {
-  // @@protoc_insertion_point(field_release:jrtransport.InfoHash.Address)
+inline ::std::string* ID::release_address() {
+  // @@protoc_insertion_point(field_release:jrtransport.ID.Address)
   
   return address_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void InfoHash::set_allocated_address(::std::string* address) {
+inline void ID::set_allocated_address(::std::string* address) {
   if (address != NULL) {
     
   } else {
     
   }
   address_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), address);
-  // @@protoc_insertion_point(field_set_allocated:jrtransport.InfoHash.Address)
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.ID.Address)
 }
 
 // string Port = 3;
-inline void InfoHash::clear_port() {
+inline void ID::clear_port() {
   port_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& InfoHash::port() const {
-  // @@protoc_insertion_point(field_get:jrtransport.InfoHash.Port)
+inline const ::std::string& ID::port() const {
+  // @@protoc_insertion_point(field_get:jrtransport.ID.Port)
   return port_.GetNoArena();
 }
-inline void InfoHash::set_port(const ::std::string& value) {
+inline void ID::set_port(const ::std::string& value) {
   
   port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:jrtransport.InfoHash.Port)
+  // @@protoc_insertion_point(field_set:jrtransport.ID.Port)
 }
 #if LANG_CXX11
-inline void InfoHash::set_port(::std::string&& value) {
+inline void ID::set_port(::std::string&& value) {
   
   port_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:jrtransport.InfoHash.Port)
+  // @@protoc_insertion_point(field_set_rvalue:jrtransport.ID.Port)
 }
 #endif
-inline void InfoHash::set_port(const char* value) {
+inline void ID::set_port(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:jrtransport.InfoHash.Port)
+  // @@protoc_insertion_point(field_set_char:jrtransport.ID.Port)
 }
-inline void InfoHash::set_port(const char* value, size_t size) {
+inline void ID::set_port(const char* value, size_t size) {
   
   port_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:jrtransport.InfoHash.Port)
+  // @@protoc_insertion_point(field_set_pointer:jrtransport.ID.Port)
 }
-inline ::std::string* InfoHash::mutable_port() {
+inline ::std::string* ID::mutable_port() {
   
-  // @@protoc_insertion_point(field_mutable:jrtransport.InfoHash.Port)
+  // @@protoc_insertion_point(field_mutable:jrtransport.ID.Port)
   return port_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* InfoHash::release_port() {
-  // @@protoc_insertion_point(field_release:jrtransport.InfoHash.Port)
+inline ::std::string* ID::release_port() {
+  // @@protoc_insertion_point(field_release:jrtransport.ID.Port)
   
   return port_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void InfoHash::set_allocated_port(::std::string* port) {
+inline void ID::set_allocated_port(::std::string* port) {
   if (port != NULL) {
     
   } else {
     
   }
   port_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), port);
-  // @@protoc_insertion_point(field_set_allocated:jrtransport.InfoHash.Port)
-}
-
-// string kBucketSize = 4;
-inline void InfoHash::clear_kbucketsize() {
-  kbucketsize_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline const ::std::string& InfoHash::kbucketsize() const {
-  // @@protoc_insertion_point(field_get:jrtransport.InfoHash.kBucketSize)
-  return kbucketsize_.GetNoArena();
-}
-inline void InfoHash::set_kbucketsize(const ::std::string& value) {
-  
-  kbucketsize_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:jrtransport.InfoHash.kBucketSize)
-}
-#if LANG_CXX11
-inline void InfoHash::set_kbucketsize(::std::string&& value) {
-  
-  kbucketsize_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:jrtransport.InfoHash.kBucketSize)
-}
-#endif
-inline void InfoHash::set_kbucketsize(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  kbucketsize_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:jrtransport.InfoHash.kBucketSize)
-}
-inline void InfoHash::set_kbucketsize(const char* value, size_t size) {
-  
-  kbucketsize_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:jrtransport.InfoHash.kBucketSize)
-}
-inline ::std::string* InfoHash::mutable_kbucketsize() {
-  
-  // @@protoc_insertion_point(field_mutable:jrtransport.InfoHash.kBucketSize)
-  return kbucketsize_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* InfoHash::release_kbucketsize() {
-  // @@protoc_insertion_point(field_release:jrtransport.InfoHash.kBucketSize)
-  
-  return kbucketsize_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void InfoHash::set_allocated_kbucketsize(::std::string* kbucketsize) {
-  if (kbucketsize != NULL) {
-    
-  } else {
-    
-  }
-  kbucketsize_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), kbucketsize);
-  // @@protoc_insertion_point(field_set_allocated:jrtransport.InfoHash.kBucketSize)
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.ID.Port)
 }
 
 // -------------------------------------------------------------------
 
 // PingRequest
 
-// .jrtransport.InfoHash source = 1;
+// .jrtransport.ID source = 1;
 inline bool PingRequest::has_source() const {
   return this != internal_default_instance() && source_ != NULL;
 }
@@ -676,32 +856,32 @@ inline void PingRequest::clear_source() {
   }
   source_ = NULL;
 }
-inline const ::jrtransport::InfoHash& PingRequest::_internal_source() const {
+inline const ::jrtransport::ID& PingRequest::_internal_source() const {
   return *source_;
 }
-inline const ::jrtransport::InfoHash& PingRequest::source() const {
-  const ::jrtransport::InfoHash* p = source_;
+inline const ::jrtransport::ID& PingRequest::source() const {
+  const ::jrtransport::ID* p = source_;
   // @@protoc_insertion_point(field_get:jrtransport.PingRequest.source)
-  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::InfoHash*>(
-      &::jrtransport::_InfoHash_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::ID*>(
+      &::jrtransport::_ID_default_instance_);
 }
-inline ::jrtransport::InfoHash* PingRequest::release_source() {
+inline ::jrtransport::ID* PingRequest::release_source() {
   // @@protoc_insertion_point(field_release:jrtransport.PingRequest.source)
   
-  ::jrtransport::InfoHash* temp = source_;
+  ::jrtransport::ID* temp = source_;
   source_ = NULL;
   return temp;
 }
-inline ::jrtransport::InfoHash* PingRequest::mutable_source() {
+inline ::jrtransport::ID* PingRequest::mutable_source() {
   
   if (source_ == NULL) {
-    auto* p = CreateMaybeMessage<::jrtransport::InfoHash>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::jrtransport::ID>(GetArenaNoVirtual());
     source_ = p;
   }
   // @@protoc_insertion_point(field_mutable:jrtransport.PingRequest.source)
   return source_;
 }
-inline void PingRequest::set_allocated_source(::jrtransport::InfoHash* source) {
+inline void PingRequest::set_allocated_source(::jrtransport::ID* source) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete source_;
@@ -724,7 +904,7 @@ inline void PingRequest::set_allocated_source(::jrtransport::InfoHash* source) {
 
 // PongResponse
 
-// .jrtransport.InfoHash destination = 1;
+// .jrtransport.ID destination = 1;
 inline bool PongResponse::has_destination() const {
   return this != internal_default_instance() && destination_ != NULL;
 }
@@ -734,32 +914,32 @@ inline void PongResponse::clear_destination() {
   }
   destination_ = NULL;
 }
-inline const ::jrtransport::InfoHash& PongResponse::_internal_destination() const {
+inline const ::jrtransport::ID& PongResponse::_internal_destination() const {
   return *destination_;
 }
-inline const ::jrtransport::InfoHash& PongResponse::destination() const {
-  const ::jrtransport::InfoHash* p = destination_;
+inline const ::jrtransport::ID& PongResponse::destination() const {
+  const ::jrtransport::ID* p = destination_;
   // @@protoc_insertion_point(field_get:jrtransport.PongResponse.destination)
-  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::InfoHash*>(
-      &::jrtransport::_InfoHash_default_instance_);
+  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::ID*>(
+      &::jrtransport::_ID_default_instance_);
 }
-inline ::jrtransport::InfoHash* PongResponse::release_destination() {
+inline ::jrtransport::ID* PongResponse::release_destination() {
   // @@protoc_insertion_point(field_release:jrtransport.PongResponse.destination)
   
-  ::jrtransport::InfoHash* temp = destination_;
+  ::jrtransport::ID* temp = destination_;
   destination_ = NULL;
   return temp;
 }
-inline ::jrtransport::InfoHash* PongResponse::mutable_destination() {
+inline ::jrtransport::ID* PongResponse::mutable_destination() {
   
   if (destination_ == NULL) {
-    auto* p = CreateMaybeMessage<::jrtransport::InfoHash>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::jrtransport::ID>(GetArenaNoVirtual());
     destination_ = p;
   }
   // @@protoc_insertion_point(field_mutable:jrtransport.PongResponse.destination)
   return destination_;
 }
-inline void PongResponse::set_allocated_destination(::jrtransport::InfoHash* destination) {
+inline void PongResponse::set_allocated_destination(::jrtransport::ID* destination) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
     delete destination_;
@@ -778,9 +958,196 @@ inline void PongResponse::set_allocated_destination(::jrtransport::InfoHash* des
   // @@protoc_insertion_point(field_set_allocated:jrtransport.PongResponse.destination)
 }
 
+// -------------------------------------------------------------------
+
+// AuthRequest
+
+// .jrtransport.ID source = 1;
+inline bool AuthRequest::has_source() const {
+  return this != internal_default_instance() && source_ != NULL;
+}
+inline void AuthRequest::clear_source() {
+  if (GetArenaNoVirtual() == NULL && source_ != NULL) {
+    delete source_;
+  }
+  source_ = NULL;
+}
+inline const ::jrtransport::ID& AuthRequest::_internal_source() const {
+  return *source_;
+}
+inline const ::jrtransport::ID& AuthRequest::source() const {
+  const ::jrtransport::ID* p = source_;
+  // @@protoc_insertion_point(field_get:jrtransport.AuthRequest.source)
+  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::ID*>(
+      &::jrtransport::_ID_default_instance_);
+}
+inline ::jrtransport::ID* AuthRequest::release_source() {
+  // @@protoc_insertion_point(field_release:jrtransport.AuthRequest.source)
+  
+  ::jrtransport::ID* temp = source_;
+  source_ = NULL;
+  return temp;
+}
+inline ::jrtransport::ID* AuthRequest::mutable_source() {
+  
+  if (source_ == NULL) {
+    auto* p = CreateMaybeMessage<::jrtransport::ID>(GetArenaNoVirtual());
+    source_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:jrtransport.AuthRequest.source)
+  return source_;
+}
+inline void AuthRequest::set_allocated_source(::jrtransport::ID* source) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete source_;
+  }
+  if (source) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      source = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, source, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  source_ = source;
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.AuthRequest.source)
+}
+
+// string secret = 2;
+inline void AuthRequest::clear_secret() {
+  secret_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& AuthRequest::secret() const {
+  // @@protoc_insertion_point(field_get:jrtransport.AuthRequest.secret)
+  return secret_.GetNoArena();
+}
+inline void AuthRequest::set_secret(const ::std::string& value) {
+  
+  secret_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:jrtransport.AuthRequest.secret)
+}
+#if LANG_CXX11
+inline void AuthRequest::set_secret(::std::string&& value) {
+  
+  secret_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:jrtransport.AuthRequest.secret)
+}
+#endif
+inline void AuthRequest::set_secret(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  secret_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:jrtransport.AuthRequest.secret)
+}
+inline void AuthRequest::set_secret(const char* value, size_t size) {
+  
+  secret_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:jrtransport.AuthRequest.secret)
+}
+inline ::std::string* AuthRequest::mutable_secret() {
+  
+  // @@protoc_insertion_point(field_mutable:jrtransport.AuthRequest.secret)
+  return secret_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* AuthRequest::release_secret() {
+  // @@protoc_insertion_point(field_release:jrtransport.AuthRequest.secret)
+  
+  return secret_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void AuthRequest::set_allocated_secret(::std::string* secret) {
+  if (secret != NULL) {
+    
+  } else {
+    
+  }
+  secret_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), secret);
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.AuthRequest.secret)
+}
+
+// -------------------------------------------------------------------
+
+// AuthResponse
+
+// .jrtransport.ID destination = 1;
+inline bool AuthResponse::has_destination() const {
+  return this != internal_default_instance() && destination_ != NULL;
+}
+inline void AuthResponse::clear_destination() {
+  if (GetArenaNoVirtual() == NULL && destination_ != NULL) {
+    delete destination_;
+  }
+  destination_ = NULL;
+}
+inline const ::jrtransport::ID& AuthResponse::_internal_destination() const {
+  return *destination_;
+}
+inline const ::jrtransport::ID& AuthResponse::destination() const {
+  const ::jrtransport::ID* p = destination_;
+  // @@protoc_insertion_point(field_get:jrtransport.AuthResponse.destination)
+  return p != NULL ? *p : *reinterpret_cast<const ::jrtransport::ID*>(
+      &::jrtransport::_ID_default_instance_);
+}
+inline ::jrtransport::ID* AuthResponse::release_destination() {
+  // @@protoc_insertion_point(field_release:jrtransport.AuthResponse.destination)
+  
+  ::jrtransport::ID* temp = destination_;
+  destination_ = NULL;
+  return temp;
+}
+inline ::jrtransport::ID* AuthResponse::mutable_destination() {
+  
+  if (destination_ == NULL) {
+    auto* p = CreateMaybeMessage<::jrtransport::ID>(GetArenaNoVirtual());
+    destination_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:jrtransport.AuthResponse.destination)
+  return destination_;
+}
+inline void AuthResponse::set_allocated_destination(::jrtransport::ID* destination) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete destination_;
+  }
+  if (destination) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      destination = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, destination, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  destination_ = destination;
+  // @@protoc_insertion_point(field_set_allocated:jrtransport.AuthResponse.destination)
+}
+
+// bool success = 2;
+inline void AuthResponse::clear_success() {
+  success_ = false;
+}
+inline bool AuthResponse::success() const {
+  // @@protoc_insertion_point(field_get:jrtransport.AuthResponse.success)
+  return success_;
+}
+inline void AuthResponse::set_success(bool value) {
+  
+  success_ = value;
+  // @@protoc_insertion_point(field_set:jrtransport.AuthResponse.success)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -1,0 +1,14 @@
+#!/bin/bash
+protoc -I . --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` transport.proto
+protoc -I . --cpp_out=. transport.proto
+
+
+# MARK: This will generate transport header and source files. Source file of transport.grpc needs to be edited cause
+# it includes transport.pb file which will be located in "JRTransport/transport.pb.h".
+# TODO: Create a sed command which will replace this inplace before installing the libraries in project in both files.
+# #include "transport.pb.h" -> #include "JRTransport/transport.pb.h"
+# #include "transport.grpc.h" -> #include "JRTransport/transport.grpc.pb.h"
+
+mv *.h ../include/JRTransport/
+mv *.cc ../src/
+

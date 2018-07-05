@@ -1,6 +1,6 @@
 ///
 /// @file    World.cxx
-/// @author  Barthelemy von Haller
+/// @author  jsam <contact@justsam.io>
 ///
 
 #include "ProjB/World.h"
@@ -8,14 +8,14 @@
 
 #include <iostream>
 
-namespace ProjectTemplate {
+namespace JollyRoger {
 namespace ProjB {
 
 void World::greet()
 {
   std::cout << "ProjB world!!" << std::endl;
 
-  ProjectTemplate::JRTransport::World JRTransportWorld;
+  JollyRoger::JRTransport::World JRTransportWorld;
   JRTransportWorld.greet();
 }
 

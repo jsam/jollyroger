@@ -1,5 +1,14 @@
 [![Build Status](https://travis-ci.org/Barthelemy/CppProjectTemplate.svg?branch=master)](https://travis-ci.org/Barthelemy/CppProjectTemplate)
 
+https://github.com/bitfinexcom/grenache
+https://www.intel.com/content/www/us/en/architecture-and-technology/64-ia-32-architectures-software-developer-vol-3a-part-1-manual.html
+http://www.1024cores.net/home/lock-free-algorithms/queues/fastflow
+http://www.hackersdelight.org/
+https://www.quora.com/What-is-the-best-way-to-design-software
+https://www.fluentcpp.com/stl/
+https://pdos.csail.mit.edu/papers/dhash:nsdi/paper.pdf
+
+
 This C++ project demonstrates the usage of CMake, boost's test, boost's option parsing and
 Doxygen. It is not the simplest example ever because we want to show how to use them
 in a proper non-minimalistic way. It also shows a way to structure the code and the other

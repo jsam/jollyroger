@@ -1,11 +1,9 @@
-# REFERENCE PROJECT CMAKELISTS.TXT
-#
-# @author Barthélémy von Haller
+# @author jsam <contact@justsam.io>
 
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/../cmake) # main (top) cmake dir
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake) # project specific cmake dir
-set(CMAKE_CXX_STANDARD 17) # tODO move up to a general cmake config for all sub projects ?
+set(CMAKE_CXX_STANDARD 17) # TODO move up to a general cmake config for all sub projects ?
 
 # CMake useful variables
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
@@ -22,19 +20,6 @@ set(VERSION_PATCH "0")
 set(VERSION ${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH})
 
 include(Common)
-
-# SVN (and its revision)
-#include(FindSubversion)
-#IF(Subversion_FOUND)
-#    if(EXISTS "${CMAKE_SOURCE_DIR}/.svn")
-#        Subversion_WC_INFO(${CMAKE_SOURCE_DIR} MY)
-#        SET(VCS_REVISION "${MY_WC_REVISION}")
-#    else ()
-#        SET(VCS_REVISION "-1")
-#    endif()
-#ELSE(Subversion_FOUND)
-#    SET(VCS_REVISION "-1")
-#ENDIF(Subversion_FOUND)
 
 ## Git (and its revision)
 find_package(Git QUIET) # if we don't find git or FindGit.cmake is not on the system we ignore it.
@@ -54,15 +39,17 @@ endif()
 # This line finds the boost lib and headers. 
 set(Boost_NO_BOOST_CMAKE ON) #  Don't do a find_package in config mode before searching for a regular boost install.
 find_package(Boost COMPONENTS unit_test_framework program_options REQUIRED)
+find_package(Protobuf REQUIRED)
+find_package(GRPC REQUIRED)
 
 # This sets the include directory for the reference project. This is the -I flag in gcc.
 # All the includes should be in this variable To add new directories to the include path,
 # just add them in this list (after a space), or add an include_directories statement in a
 # subdirectory's CMakeLists.
 include_directories(
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_BINARY_DIR}/include   # add the binary tree to the search path so that we will find Version.h
-    ${Boost_INCLUDE_DIRS}
+        ${PROJECT_SOURCE_DIR}/include
+        ${PROJECT_BINARY_DIR}/include   # add the binary tree to the search path so that we will find Version.h
+        ${Boost_INCLUDE_DIRS}
 )
 
 # Mac needed variables (adapt according to your needs)
@@ -81,11 +68,9 @@ add_subdirectory(test)
 #
 # SYSTEM PACKAGING (RPM, TGZ, ...)
 # _____________________________________________________________________________
-
 include(CPackConfig)
 
 #
 # CMAKE PACKAGING (for other CMake projects to use this one easily)
 # _____________________________________________________________________________
-
 include(PackageConfigurator)

@@ -1,6 +1,6 @@
 ///
 /// @file    TestHello.cxx
-/// @author  Barthelemy von Haller
+/// @author  jsam <contact@justsam.io>
 ///
 
 #include "ProjB/World.h"
@@ -22,7 +22,7 @@ BOOST_AUTO_TEST_CASE(arithmetic_test)
 
 BOOST_AUTO_TEST_CASE(hello_test)
 {
-  ProjectTemplate::ProjB::World world;
+  JollyRoger::ProjB::World world;
   const int ret = world.returnsN(3);
   BOOST_CHECK_EQUAL(ret, 3);
 }

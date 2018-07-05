@@ -39,14 +39,14 @@ class ServerImpl final {
   private:
     class CallData {
       public:
+
         CallData(JRTransportService::AsyncService* service, ServerCompletionQueue* cq);
+
         void Proceed();
 
       private:
         JRTransportService::AsyncService* service_;
-
         ServerCompletionQueue* cq_;
-
         ServerContext ctx_;
 
         PingRequest pingRequest_;

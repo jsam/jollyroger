@@ -5,14 +5,16 @@ namespace JRTransport {
 
 ServerImpl::ServerImpl() : requestsProcessed(0) {}
 
-ServerImpl::~ServerImpl() {
+ServerImpl::~ServerImpl()
+{
     if (server_ != nullptr)
         server_->Shutdown();
     if (cq_ != nullptr)
         cq_->Shutdown();
 }
 
-void ServerImpl::Run() {
+void ServerImpl::Run()
+{
     std::string server_address("0.0.0.0:50051");
 
     ServerBuilder builder;
@@ -27,55 +29,54 @@ void ServerImpl::Run() {
     HandleRPCs();
 }
 
-const unsigned long long ServerImpl::RequestCount() {
-    return requestsProcessed;
+const unsigned long long ServerImpl::RequestCount() { return requestsProcessed; }
+
+void ServerImpl::HandleRPCs()
+{
+    new CallData(service_, cq_.get());
+    void* tag;
+    bool ok;
+    while (true) {
+        GPR_ASSERT(cq_->Next(&tag, &ok));
+        GPR_ASSERT(ok);
+        static_cast<CallData*>(tag)->Proceed();
+    }
 }
 
-void ServerImpl::HandleRPCs() {
-
+ServerImpl::CallData::CallData(JRTransportService::AsyncService* service, ServerCompletionQueue* cq)
+    : service_(service), cq_(cq), pongResponder_(&ctx_), status_(CREATE)
+{
+    Proceed();
 }
 
-//class ServerImpl final {
-//  public:
-//    ServerImpl() {}
-//
-//    ~ServerImpl() {}
-//
-//    void Run() {}
-//
-//    const unsigned long long RequestCount() { return requestsProcessed; }
-//
-//  private:
-//    class CallData {
-//      public:
-//        CallData(JRTransport::AsyncService* service, ServerCompletionQueue* cq) {}
-//
-//        void Proceed() {}
-//
-//      private:
-//        JRTransportService::AsyncService* service_;
-//
-//        ServerCompletionQueue* cq_;
-//
-//        ServerContext ctx_;
-//
-//        PingRequest pingRequest_;
-//        PongResponse pongResponse_;
-//
-//        ServerAsyncResponseWriter<PongResponse> pongResponder_;
-//
-//        enum CallStatus { CREATE, PROCESS, FINISH };
-//        CallStatus status_;
-//    };
-//
-//
-//
-//    std::unique_ptr<ServerCompletionQueue> cq_;
-//    JRTransport::AsyncService service_;
-//    std::unique_ptr<Server> server_;
-//
-//    unsigned long long requestsProcessed;
-//};
+void ServerImpl::CallData::Proceed() {
+    if (status_ == CREATE) {
+        status_ = PROCESS;
+        service_->RequestPing(&ctx_, &pingRequest_, &pongResponder_, cq_, cq_, this);
+        //service_->RequestAuth(&ctx_, &authRequest_, &pongResponder_, cq_, cq_, this);
+    }
+    else if (status_ == PROCESS) {
+        new CallData(service_, cq_);
+
+        //TODO: actual processing
+        std::string prefix("pong");
+
+        ID* id = new ID();
+        id->set_address("0.0.0.0");
+        id->set_port("50051");
+        id->set_infohash("infohash");
+
+        pongResponse_.set_allocated_destination(id);
+
+        status_ = FINISH;
+        pongResponder_.Finish(pongResponse_, Status::OK, this);
+    }
+    else {
+        GPR_ASSERT(status_ == FINISH);
+        delete this;
+    }
+
+}
 
 } // namespace JRTransport
 } // namespace JollyRoger

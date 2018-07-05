@@ -12,16 +12,17 @@
 #include <boost/test/unit_test.hpp>
 
 using JollyRoger::JRTransport::World;
+using JollyRoger::JRTransport::ServerImpl;
 
 BOOST_AUTO_TEST_CASE(ServerImplCreation)
 {
-  JollyRoger::JRTransport::ServerImpl server;
+  ServerImpl server;
   BOOST_CHECK_EQUAL(server.RequestCount(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ServerImplRun) {
-    JollyRoger::JRTransport::ServerImpl server;
-    BOOST_CHECK_EQUAL(server.RequestCount(), 0);
+    ServerImpl server;
+    server.Run();
 }
 
 BOOST_AUTO_TEST_CASE(hello_test)

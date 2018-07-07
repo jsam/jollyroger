@@ -1,7 +1,8 @@
 #include "JRTransport/Version.h"
-#include "JRTransport/World.h"
+#include "JRTransport/Node.h"
 #include <boost/program_options.hpp>
 #include <iostream>
+#include <JRTransport/Server.h>
 
 namespace po = boost::program_options;
 
@@ -31,8 +32,11 @@ int main(int argc, char* argv[])
     }
 
     // Actual "work"
-    JollyRoger::JRTransport::World hello;
-    hello.greet();
+    JollyRoger::JRTransport::Node node(":50051");
+    node.Connect();
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+    node.Disconnect();
 
     return EXIT_SUCCESS;
 }

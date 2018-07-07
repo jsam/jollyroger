@@ -4,7 +4,7 @@
 ///
 
 #include "ProjB/World.h"
-#include "JRTransport/World.h"
+#include "JRTransport/Node.h"
 
 #include <iostream>
 
@@ -15,7 +15,7 @@ void World::greet()
 {
   std::cout << "ProjB world!!" << std::endl;
 
-  JollyRoger::JRTransport::World JRTransportWorld;
+  World JRTransportWorld;
   JRTransportWorld.greet();
 }
 

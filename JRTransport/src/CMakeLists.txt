@@ -17,18 +17,30 @@ set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
 
 set(LIB_HEADERS
         "${CMAKE_CURRENT_BINARY_DIR}/../include/JRTransport/Version.h" # Generated header
-        ../include/JRTransport/World.h # Normal header
         ../include/JRTransport/transport.pb.h
         ../include/JRTransport/transport.grpc.pb.h
-        ../include/JRTransport/ServerImpl.h)
+
+        ../include/JRTransport/CallDataBase.h
+        ../include/JRTransport/PingCallData.h
+        ../include/JRTransport/AuthCallData.h
+        ../include/JRTransport/Server.h
+        ../include/JRTransport/Client.h
+
+        ../include/JRTransport/Node.h # Normal header
+        )
 
 
 set(LIB_SOURCES
         transport.pb.cc
         transport.grpc.pb.cc
 
-        World.cxx
-        ServerImpl.cxx
+        CallDataBase.cxx
+        PingCallData.cxx
+        AuthCallData.cxx
+        Server.cxx
+        Client.cxx
+
+        Node.cxx
         )
 
 set(APP_HEADERS

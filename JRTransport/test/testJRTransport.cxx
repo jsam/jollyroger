@@ -3,7 +3,7 @@
 /// @author  jsam <contact@justsam.io>
 ///
 
-#include "JRTransport/World.h"
+#include "JRTransport/Node.h"
 
 #define BOOST_TEST_MODULE hello test
 #define BOOST_TEST_MAIN
@@ -20,9 +20,10 @@ BOOST_AUTO_TEST_CASE(arithmetic_test)
   BOOST_CHECK_EQUAL(a, b);
 }
 
-BOOST_AUTO_TEST_CASE(hello_test)
-{
-  JollyRoger::JRTransport::World world;
-  const int ret = world.returnsN(3);
-  BOOST_CHECK_EQUAL(ret, 3);
-}
+//
+//BOOST_AUTO_TEST_CASE(hello_test)
+//{
+//  JollyRoger::JRTransport::Node world;
+//  const int ret = world.returnsN(3);
+//  BOOST_CHECK_EQUAL(ret, 3);
+//}

@@ -2,8 +2,15 @@
 /// @file    TestHello.cxx
 /// @author  jsam <contact@justsam.io>
 ///
-#include "JRTransport/ServerImpl.h"
-#include "JRTransport/World.h"
+
+#include <thread>
+#include <chrono>
+
+#include "grpc++/grpc++.h"
+
+#include "JRTransport/Server.h"
+#include "JRTransport/Client.h"
+#include "JRTransport/Node.h"
 
 #define BOOST_TEST_MODULE hello test
 #define BOOST_TEST_MAIN
@@ -11,23 +18,22 @@
 #include <assert.h>
 #include <boost/test/unit_test.hpp>
 
-using JollyRoger::JRTransport::World;
-using JollyRoger::JRTransport::ServerImpl;
+using JollyRoger::JRTransport::Node;
+using JollyRoger::JRTransport::Server;
+using JollyRoger::JRTransport::Client;
 
 BOOST_AUTO_TEST_CASE(ServerImplCreation)
 {
-  ServerImpl server;
+  Server server;
   BOOST_CHECK_EQUAL(server.RequestCount(), 0);
 }
 
 BOOST_AUTO_TEST_CASE(ServerImplRun) {
-    ServerImpl server;
+    Server server;
     server.Run();
-}
-
-BOOST_AUTO_TEST_CASE(hello_test)
-{
-  World world;
-  const int ret = world.returnsN(3);
-  BOOST_CHECK_EQUAL(ret, 3);
+    JollyRoger::JRTransport::Client client(grpc::CreateChannel(":50051", grpc::InsecureChannelCredentials()));
+    auto response = client.Ping();
+    std::cout << "Received: " << response.destination().infohash() << "\n";
+    BOOST_CHECK_EQUAL(response.destination().infohash(), "infohash:pongReply");
+    server.Stop();
 }

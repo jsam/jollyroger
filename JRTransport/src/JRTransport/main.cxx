@@ -31,12 +31,16 @@ int main(int argc, char* argv[])
         return EXIT_SUCCESS;
     }
 
-    // Actual "work"
     JollyRoger::JRTransport::Node node(":50051");
     node.Connect();
+    try {
+        node.Serve();
+    } catch(const char* err) {
+        std::cerr << err << std::endl;
+        node.Disconnect();
+    }
 
-    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
-    node.Disconnect();
+    //std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
     return EXIT_SUCCESS;
 }

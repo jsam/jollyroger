@@ -5,35 +5,86 @@ package jrtransport;
 option cc_generic_services = false;
 option cc_enable_arenas = false;
 
+message Error {
+    bool exists = 1;
+    string message = 2;
+}
 
-message ID {
-    string InfoHash = 1;
-    string Address = 2;
-    string Port = 3;
+message Contact {
+    string hash = 1;
+    string address = 2;
+    string port = 3;
+}
+
+message KeyValue {
+    string key = 1;
+    bytes value = 2;
 }
 
 message PingRequest {
-  ID source = 1;
+    Contact sender = 1;
 }
 
 message PongResponse {
-  ID destination = 1;
+    Contact sender = 1;
+    Error error = 2;
 }
 
-
 message AuthRequest {
-    ID source = 1;
+    Contact source = 1;
     string secret = 2;
 }
 
 message AuthResponse {
-    ID destination = 1;
-    bool success = 2;
+    Contact destination = 1;
+    Error error = 2;
 }
 
+message StoreRequest {
+    Contact sender = 1;
+    KeyValue element = 2;
+}
 
-// The JRTransport service definition.
+message StoreResponse {
+    Contact sender = 1;
+    Error error = 2;
+}
+
+message FindNodeRequest {
+    Contact sender = 1;
+    string hash = 2;
+}
+
+message FindNodeResponse {
+    Contact sender = 1;
+    Error error = 2;
+    repeated Contact nodes = 3;
+}
+
+message FindValueRequest {
+    Contact sender = 1;
+    string hash = 2;
+}
+
+message FindValueResponse {
+    Contact sender = 1;
+    Error error = 2;
+
+    enum ResponseType {
+        VALUE_FOUND = 0;
+        VALUE_NOT_FOUND = 1;
+    }
+    ResponseType type = 3;
+    KeyValue element = 4;
+    repeated Contact nodes = 5;
+}
+
 service JRTransportService {
-  rpc Ping (PingRequest) returns (PongResponse) {}
-  rpc Auth (AuthRequest) returns (AuthResponse) {}
+    rpc Ping (PingRequest) returns (PongResponse) {}
+    rpc Auth (AuthRequest) returns (AuthResponse) {}
+
+    rpc Store (StoreRequest) returns (StoreResponse) {}
+
+    rpc FindNode (FindNodeRequest) returns (FindNodeResponse) {}
+    rpc FindValue (FindValueRequest) returns (FindValueRequest) {}
 }

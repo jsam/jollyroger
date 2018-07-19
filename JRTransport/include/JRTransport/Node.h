@@ -27,16 +27,17 @@ namespace JRTransport {
 class Node {
   public:
     explicit Node(const std::string& uri);
-    virtual ~Node() = default;
+    ~Node();
 
     void Connect();
+    void Serve();
     void Disconnect();
 
 //    void Get(std::string key);
 //    void Set(std::string key, std::vector<char> value);
 
 private:
-    JollyRoger::JRTransport::Server server_;
+    std::shared_ptr<JollyRoger::JRTransport::Server> server_;
     JollyRoger::JRTransport::Client client_;
 };
 

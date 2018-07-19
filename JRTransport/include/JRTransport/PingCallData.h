@@ -12,7 +12,7 @@ class PingCallData : public CallDataBase {
 
     ~PingCallData() override = default;
 
-    void Process() override;
+    bool Process() override;
 
 
   private:

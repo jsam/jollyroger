@@ -1,6 +1,8 @@
 # @brief
 # @author  jsam <contact@justsam.io>
 
+find_package(RocksDB)
+
 set(protobuf_MODULE_COMPATIBLE TRUE)
 include(FindProtobuf)
 find_package(Protobuf REQUIRED)
@@ -16,38 +18,44 @@ set(_GRPC_CPP_PLUGIN_EXECUTABLE $<TARGET_FILE:grpc_cpp_plugin>)
 
 
 set(LIB_HEADERS
+        ../include/JRUtils/MPMCQueue.h # Normal headers
+
         "${CMAKE_CURRENT_BINARY_DIR}/../include/JRTransport/Version.h" # Generated header
         ../include/JRTransport/transport.pb.h
         ../include/JRTransport/transport.grpc.pb.h
 
-        ../include/JRTransport/CallDataBase.h
+
+        ../include/JRTransport/CallDataBase.h # Normal headers
         ../include/JRTransport/PingCallData.h
         ../include/JRTransport/AuthCallData.h
         ../include/JRTransport/Server.h
         ../include/JRTransport/Client.h
 
-        ../include/JRTransport/Node.h # Normal header
+        ../include/JRTransport/Node.h
+        ../include/JRStore/Store.h
         )
 
 
 set(LIB_SOURCES
-        transport.pb.cc
-        transport.grpc.pb.cc
+        GeneratedSources/transport.pb.cc
+        GeneratedSources/transport.grpc.pb.cc
 
-        CallDataBase.cxx
-        PingCallData.cxx
-        AuthCallData.cxx
-        Server.cxx
-        Client.cxx
+        JRTransport/CallDataBase.cxx
+        JRTransport/PingCallData.cxx
+        JRTransport/AuthCallData.cxx
+        JRTransport/Server.cxx
+        JRTransport/Client.cxx
+        JRTransport/Node.cxx
 
-        Node.cxx
+        JRStore/Store.cxx
+        JRStore/HashID.cxx
         )
 
 set(APP_HEADERS
         )
 
 set(APP_SOURCES
-        main.cxx
+        JRTransport/main.cxx
         )
 
 # Define two variables in order not to repeat ourselves.
@@ -55,14 +63,24 @@ set(LIBRARY_NAME JRTransport)
 
 # Define the library
 add_library(${LIBRARY_NAME} SHARED ${LIB_SOURCES})
-target_link_libraries(${LIBRARY_NAME} ${GPR_LIBRARY} ${GRPC_LIBRARY} ${GRPCPP_LIBRARY} ${_GRPC_GRPCPP_UNSECURE} ${_PROTOBUF_LIBPROTOBUF})
 
 # Set the build version. It will be used in the name of the lib, with corresponding
-# symlinks created. SOVERSION could also be specified for api version. 
+# symlinks created. SOVERSION could also be specified for api version.
 set_target_properties(${LIBRARY_NAME} PROPERTIES
-  VERSION ${VERSION}  # ${VERSION} was defined in the main CMakeLists.
-  FRAMEWORK FALSE
-  PUBLIC_HEADER "${LIB_HEADERS}" # specify the public headers
+        CXX_STANDARD_REQUIRED 17
+        VERSION ${VERSION}  # ${VERSION} was defined in the main CMakeLists.
+        FRAMEWORK FALSE
+        PUBLIC_HEADER "${LIB_HEADERS}" # specify the public headers
+        )
+
+target_link_libraries(
+        ${LIBRARY_NAME}
+        ${GPR_LIBRARY}
+        ${GRPC_LIBRARY}
+        ${GRPCPP_LIBRARY}
+        ${_GRPC_GRPCPP_UNSECURE}
+        ${_PROTOBUF_LIBPROTOBUF}
+        ${ROCKSDB_LIBRARIES}
 )
 
 # This is a make target, so you can do a "make JRTransportrunner"

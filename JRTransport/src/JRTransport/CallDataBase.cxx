@@ -7,14 +7,14 @@ CallDataBase::CallDataBase(jrtransport::JRTransportService::AsyncService* servic
 
 CallDataBase::~CallDataBase() = default;
 
-void CallDataBase::Proceed()
+bool CallDataBase::Proceed()
 {
     if (status_ == PROCESS) {
         status_ = FINISH;
-        this->Process();
+        return this->Process();
     }
-    else {
-        GPR_ASSERT(status_ == FINISH);
+    else if (status_ == FINISH) {
         delete this;
     }
+    return RPC_FAILED;
 }

@@ -8,7 +8,7 @@ PingCallData::PingCallData(jrtransport::JRTransportService::AsyncService* servic
     service->RequestPing(&ctx_, &request_, &responder_, cq, cq, this);
 }
 
-void PingCallData::Process()
+bool PingCallData::Process()
 {
     new PingCallData(this->service_, cq_);
 
@@ -19,4 +19,6 @@ void PingCallData::Process()
 
     this->response_.set_allocated_destination(id);
     responder_.Finish(this->response_, grpc::Status::OK, this);
+
+    return RPC_SUCCESS;
 }

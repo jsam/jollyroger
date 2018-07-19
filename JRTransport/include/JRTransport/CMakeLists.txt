@@ -1,4 +1,4 @@
-# @author  Barthélémy von Haller
+# @author  jsam <contact@justsam.io>
 
 # Produce the final Version.h using template Version.h.in and substituting variables.
 # We don't want to polute our source tree with it, thus putting it in binary tree.

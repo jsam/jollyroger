@@ -8,7 +8,7 @@ AuthCallData::AuthCallData(jrtransport::JRTransportService::AsyncService *servic
     service->RequestAuth(&ctx_, &request_, &responder_, cq, cq, this);
 }
 
-void AuthCallData::Process() {
+bool AuthCallData::Process() {
     new AuthCallData(service_, cq_);
 
     auto id = new jrtransport::ID();
@@ -19,4 +19,5 @@ void AuthCallData::Process() {
     this->response_.set_allocated_destination(id);
     responder_.Finish(this->response_, grpc::Status::OK, this);
 
+    return RPC_SUCCESS;
 }

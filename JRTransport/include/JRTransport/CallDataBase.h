@@ -21,10 +21,10 @@ class CallDataBase {
 
     virtual ~CallDataBase();
 
-    void Proceed();
+    bool Proceed();
 
   protected:
-    virtual void Process() = 0;
+    virtual bool Process() = 0;
 
     // Producer-consumer queue
     grpc::ServerCompletionQueue* cq_;
@@ -32,6 +32,8 @@ class CallDataBase {
     // Communication with the gRPC runtime for an asynchronous server
     jrtransport::JRTransportService::AsyncService* service_;
 
+    static const bool RPC_SUCCESS = true;
+    static const bool RPC_FAILED = false;
   private:
 
     // Tiny state machine

@@ -1,5 +1,5 @@
-#include <thread>
 #include <future>
+#include <thread>
 
 #include <grpc/support/log.h>
 #include <grpcpp/grpcpp.h>
@@ -13,13 +13,7 @@ namespace JRTransport {
 
 Server::Server() : requests_processed(0), is_running(false) {}
 
-Server::~Server()
-{
-    if (server_ptr_ != nullptr)
-        server_ptr_->Shutdown();
-    if (cq_ != nullptr)
-        cq_->Shutdown();
-}
+Server::~Server() = default;
 
 void Server::Run()
 {
@@ -45,32 +39,36 @@ void Server::Run()
               << "\n";
 }
 
-void Server::Wait()
+void Server::JoinWorkers()
 {
     if (workers.empty()) {
         std::cout << "no threads started\n";
         return;
     }
 
-    if (!is_running) {
-       std::cout << "server is not running\n";
+    for (auto& w : workers) {
+        w.join();
     }
-
-    std::cout << "waiting for server to shutdown\n";
-    server_ptr_->Wait();
 }
+
+void Server::ServerWait() { server_ptr_->Wait(); }
 
 void Server::Stop()
 {
     is_running = false;
+
     server_ptr_->Shutdown();
-    std::this_thread::sleep_for(std::chrono::milliseconds(100));
     cq_->Shutdown();
+
+    std::cout << "waiting for server workers to join\n";
+    JoinWorkers();
 };
 
+const unsigned long long Server::RequestCount() { return requests_processed.load(); }
 
-
-const unsigned long long Server::RequestCount() { return requests_processed; }
+bool Server::IsRunning() {
+    return is_running.load();
+}
 
 void Server::HandleRPCs()
 {
@@ -84,15 +82,19 @@ void Server::HandleRPCs()
     void* tag; // event
     bool ok;
 
-    do {
-        GPR_ASSERT(cq_->Next(&tag, &ok));
-        GPR_ASSERT(ok);
-        static_cast<CallDataBase*>(tag)->Proceed();
-        std::cout << "running: " << is_running << std::endl;
-    } while (is_running);
+    while (true) {
+        if (cq_->Next(&tag, &ok)) {
+            if (!ok)
+                continue;                               // read failed, try again
 
-    std::cout << "quiting event loop" << std::endl;
-    //std::terminate();
+            if(static_cast<CallDataBase*>(tag)->Proceed()) // read successful, handle rpc
+                requests_processed++;
+        }
+        else {
+            // server has been shut down, kill the running worker thread
+            return;
+        }
+    }
 }
 
 } // namespace JRTransport

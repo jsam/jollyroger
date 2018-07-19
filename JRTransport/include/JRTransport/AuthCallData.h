@@ -12,7 +12,7 @@ class AuthCallData : public CallDataBase {
 
     ~AuthCallData() override = default;
 
-    void Process() override;
+    bool Process() override;
 
   private:
     grpc::ServerContext ctx_;
